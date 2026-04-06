@@ -16,13 +16,25 @@ public class MovieController {
     private final RecommendationService recommendationService;
 
     @GetMapping("/all")
-    public ResponseEntity<?> getAllMovies(){
-        return ResponseEntity.status(HttpStatus.OK).body(movieService.getAllMovies());
+    public ResponseEntity<?> getAllMovies(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "40") int size
+    ){
+        return ResponseEntity.status(HttpStatus.OK).body(movieService.getAllMovies(page,size));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getByMovieId(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(movieService.getByMovieId(id));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<?> searchMovieByTitle(
+            @RequestParam String title,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "40") int size
+    ){
+        return ResponseEntity.status(HttpStatus.OK).body(movieService.searchMovie(title,page,size));
     }
 
     @GetMapping("/recommend")

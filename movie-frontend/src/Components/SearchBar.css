@@ -1,0 +1,73 @@
+.sb-wrap {
+  max-width: 600px;
+  margin: 0 auto 0.5rem;
+}
+
+.sb-input-wrap {
+  position: relative;
+}
+
+.sb-icon {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.sb-input {
+  width: 100%;
+  padding: 0.85rem 2.8rem 0.85rem 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.sb-input::placeholder {
+  color: var(--muted);
+}
+
+.sb-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+}
+
+.sb-clear {
+  position: absolute;
+  right: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+  line-height: 1;
+}
+
+.sb-clear:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sb-label {
+  font-size: 0.83rem;
+  color: var(--muted);
+  margin-top: 0.7rem;
+  text-align: center;
+}
+
+.sb-label strong {
+  color: var(--accent2);
+}

@@ -4,10 +4,11 @@ import com.example.movieRecommendation.Entity.Movies;
 import com.example.movieRecommendation.Payloads.MovieResponse;
 import com.example.movieRecommendation.Repository.MovieRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -15,11 +16,10 @@ public class MovieService {
 
     private final MovieRepo movieRepo;
 
-    public List<MovieResponse> getAllMovies() {
-        List<Movies> movies = movieRepo.findAll();
-        return movies.stream()
-                .map(item -> convertToMovieResponse(item))
-                .toList();
+    public Page<MovieResponse> getAllMovies(int page, int size) {
+        Pageable pageable=PageRequest.of(page, size);
+        Page<Movies> movies = movieRepo.findAll(pageable);
+        return movies.map(item->convertToMovieResponse(item));
     }
 
     private MovieResponse convertToMovieResponse(Movies item) {
@@ -56,4 +56,9 @@ public class MovieService {
         return convertToMovieResponse(existingMovie);
     }
 
+    public Page<MovieResponse> searchMovie(String title, int page, int size) {
+        Pageable pageable=PageRequest.of(page,size);
+        Page<Movies> existingMovies=movieRepo.findByTitleContainingIgnoreCase(title,pageable);
+        return existingMovies.map(item->convertToMovieResponse(item));
+    }
 }

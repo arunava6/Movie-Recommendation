@@ -5,7 +5,6 @@ import HomePage from './Pages/HomePage'
 import MovieDetails from './Pages/MovieDetails'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

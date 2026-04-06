@@ -60,60 +60,6 @@ body {
   font-weight: 300;
 }
 
-/* --- SEARCH --- */
-.cin-search-wrap {
-  max-width: 600px;
-  margin: 0 auto 0.5rem;
-  position: relative;
-}
-
-.cin-search-icon {
-  position: absolute;
-  left: 1.1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--muted);
-  font-size: 1.1rem;
-  pointer-events: none;
-}
-
-.cin-search {
-  width: 100%;
-  padding: 0.85rem 1.2rem 0.85rem 3rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 50px;
-  color: var(--text);
-  font-size: 1rem;
-  font-family: 'DM Sans', sans-serif;
-  outline: none;
-  transition: border 0.2s, box-shadow 0.2s;
-  box-sizing: border-box;
-}
-
-.cin-search::placeholder {
-  color: var(--muted);
-}
-
-.cin-search:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
-}
-
-/* --- RESULT COUNT --- */
-.cin-result-count {
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.82rem;
-  margin-bottom: 2rem;
-  letter-spacing: 0.05em;
-}
-
-.cin-result-count span {
-  color: var(--accent2);
-  font-weight: 500;
-}
-
 /* --- DIVIDER --- */
 .cin-divider {
   height: 1px;
@@ -133,14 +79,8 @@ body {
 
 /* --- CARD --- */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .cin-card {
@@ -160,7 +100,6 @@ body {
   border-color: rgba(230, 57, 70, 0.4);
 }
 
-/* --- POSTER --- */
 .cin-poster-wrap {
   position: relative;
   aspect-ratio: 2/3;
@@ -180,7 +119,6 @@ body {
   transform: scale(1.07);
 }
 
-/* --- OVERLAY --- */
 .cin-overlay {
   position: absolute;
   inset: 0;
@@ -218,7 +156,6 @@ body {
   margin-left: 2px;
 }
 
-/* --- NO POSTER FALLBACK --- */
 .cin-no-poster {
   width: 100%;
   height: 100%;
@@ -238,7 +175,6 @@ body {
   font-family: 'DM Sans', sans-serif;
 }
 
-/* --- CARD BODY --- */
 .cin-card-body {
   padding: 0.85rem 1rem 1rem;
 }
@@ -320,19 +256,95 @@ body {
   margin-bottom: 0.5rem;
 }
 
-
-.cin-view-btn {
-  margin-top: 8px;
-  padding: 6px 10px;
-  font-size: 0.75rem;
-  border: none;
-  border-radius: 6px;
-  background: var(--accent);
-  color: white;
-  cursor: pointer;
-  transition: 0.2s;
+/* --- STATS BAR --- */
+.cin-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
-.cin-view-btn:hover {
-  background: #ff4d5a;
+.cin-stats-bar strong {
+  color: var(--accent2);
+}
+
+.cin-dot-sep {
+  color: var(--border);
+  font-size: 1.1rem;
+}
+
+/* --- RETRY --- */
+.cin-retry-btn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.8rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.cin-retry-btn:hover {
+  opacity: 0.85;
+}
+
+/* --- PAGINATION --- */
+.cin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 2rem 1rem 4rem;
+  flex-wrap: wrap;
+}
+
+.cin-page-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.cin-page-btn:hover:not(:disabled) {
+  background: rgba(230, 57, 70, 0.1);
+  border-color: rgba(230, 57, 70, 0.4);
+  transform: translateY(-1px);
+}
+
+.cin-page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.cin-page-active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.cin-page-arrow {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.cin-ellipsis {
+  color: var(--muted);
+  font-size: 1rem;
+  padding: 0 0.2rem;
+  user-select: none;
 }

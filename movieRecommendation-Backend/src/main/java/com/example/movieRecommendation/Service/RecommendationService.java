@@ -20,7 +20,7 @@ public class RecommendationService {
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/recommend")
-                        .queryParam("title", encodedTitle)
+                        .queryParam("title", title)
                         .build())
                 .retrieve()
                 .bodyToFlux(RecommendationResponse.class)
